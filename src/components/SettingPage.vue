@@ -11,12 +11,13 @@ const settings = reactive({ ...defaults })
 const categories = getAllCategories()
 const savedCategories = getUserSelectedCategories()
 const selectedCategoryIds = ref(
-  savedCategories.length > 0 ? savedCategories.map((category) => category.id) : categories.map((category) => category.id),
+  savedCategories.length > 0 ? savedCategories : categories.map((category) => category.id),
 )
 const saved = ref(false)
 
 function saveSettings() {
-  saveUserSelectedCategories(selectedCategoryIds.value)
+  const filteredCats = selectedCategoryIds.value.filter(id => undefined != id);
+  saveUserSelectedCategories(filteredCats)
   saved.value = true
   window.setTimeout(() => { saved.value = false }, 2500)
 }

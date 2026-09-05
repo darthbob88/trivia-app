@@ -12,9 +12,8 @@ const getAllCategories = () => {
 }
 
 // TODO: Make this a proper AJAX call as well as/rather than localstorage.
-const getUserSelectedCategories = () => {
-  const selectedCategoryIds = JSON.parse(localStorage.getItem('selectedCategories') || '[]')
-  return categories.filter((category) => selectedCategoryIds.includes(category.id))
+const getUserSelectedCategories = (): number[] => {
+  return JSON.parse(localStorage.getItem('selectedCategories') || '[]')
 }
 
 const saveUserSelectedCategories = (selectedCategoryIds: number[]) => {

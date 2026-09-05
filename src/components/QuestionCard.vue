@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { type Question } from '@/stores/questions.ts';
 
-const props = defineProps({
-  question: String,
-  answers: Array<string>,
-  correctAnswer: String,
-})
+const props = defineProps<{
+  question: Question;
+}>();
 
 const answered = ref(false);
 const selectedAnswer = ref('');
@@ -14,33 +13,41 @@ function submitanswer(guess: string) {
   selectedAnswer.value = guess;
 }
 
-const disabledIndices = ref<number[]>([]);
+// TODO: Turn this into a proper AJAX call.
 const hintUsed = ref(false);
+const disabledIndices = ref<number[]>([]);
 function useLifeline() {
   hintUsed.value = true;
-  if (props.answers == undefined || props.answers.length < 4) {
+  if (props.question.answers == undefined || props.question.answers.length < 4) {
     console.log('Not enough answers to disable');
     return;
   }
-  if (props.correctAnswer == undefined) {
+  if (props.question.correctAnswer == undefined) {
     console.log('No correct answer provided');
     return;
   }
 
-  const correctIndex = props.answers.indexOf(props.correctAnswer);
+  const correctIndex = props.question.answers.indexOf(props.question.correctAnswer);
   const possibles = [0, 1, 2, 3]
   possibles.splice(correctIndex, 1);
   const keptIndex = Math.floor(Math.random() * 3);
   possibles.splice(keptIndex, 1);
   disabledIndices.value = possibles;
 }
+
+function reset() {
+  answered.value = false;
+  selectedAnswer.value = '';
+  hintUsed.value = false;
+  disabledIndices.value = [];
+}
 </script>
 
 <template>
   <section v-if="!answered" class="question-card">
-    <div class="question">{{ question }}</div>
+    <div class="question">{{ props.question.question }}</div>
     <div class="answer">
-      <button v-for="(answer, index) in answers" :key="answer" @click.once="submitanswer(answer)"
+      <button v-for="(answer, index) in props.question.answers" :key="answer" @click.once="submitanswer(answer)"
         :disabled="disabledIndices.includes(index)">
         {{ answer }}
       </button>
@@ -48,12 +55,13 @@ function useLifeline() {
     <button @click="useLifeline" :disabled="hintUsed">Hint</button>
   </section>
   <section v-else class="answer-card">
-    <div class="question">{{ question }}</div>
+    <div class="question">{{ props.question.question }}</div>
     <div>
-      <p v-if="selectedAnswer === correctAnswer">Correct!</p>
-      <p v-else>You guessed {{ selectedAnswer }}, but the correct answer is {{ correctAnswer }}</p>
-      <p>Some more waffle about the correct answer.</p>
-      <button @click="answered = false">Try again</button>
+      <p v-if="selectedAnswer === props.question.correctAnswer">Correct!</p>
+      <p v-else>You guessed {{ selectedAnswer }}, but the correct answer is {{ props.question.correctAnswer }}</p>
+      <p v-if="props.question.additionalInfo">{{ props.question.additionalInfo }}</p>
+      <button v-if="selectedAnswer !== props.question.correctAnswer" @click="reset">Try again</button>
+      <a href="/random">Next Question</a>
 
     </div>
   </section>
