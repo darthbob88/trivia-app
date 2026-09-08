@@ -3,7 +3,7 @@
 interface Question {
   category: number
   id: number
-  question: string
+  text: string
   correctAnswer: string
   answers: string[]
   additionalInfo?: string
@@ -13,7 +13,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 1,
-    question: 'Which Irish saint is the patron of mariners, divers, whales, and the US Navy?',
+    text: 'Which Irish saint is the patron of mariners, divers, whales, and the US Navy?',
     correctAnswer: 'St Brendan the Navigator',
     answers: ['St Catherine of Alexandria', 'St Matthew', 'St Brendan the Navigator', 'St Patrick'],
     additionalInfo:
@@ -22,8 +22,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 2,
-    question:
-      'Which saint is the patron of more or less all travelers? Medallions and statues of him are commonly carried by Catholic travelers, including in their cars.',
+    text: 'Which saint is the patron of more or less all travelers? Medallions and statues of him are commonly carried by Catholic travelers, including in their cars.',
     correctAnswer: 'St Christopher',
     answers: [
       'St Catherine of Alexandria',
@@ -35,7 +34,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 3,
-    question: 'Who is the patron saint of Boy Scouts and England, among many other things?',
+    text: 'Who is the patron saint of Boy Scouts and England, among many other things?',
     correctAnswer: 'St George (of Lydda)',
     answers: [
       'St George (of Lydda)',
@@ -47,8 +46,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 4,
-    question:
-      'Which Italian saint is the patron of air travellers and astronauts, due to his alleged ability to fly? He is also the patron of exam takers, due to his miraculously getting asked only the questions he knew at his ordination as a priest.',
+    text: 'Which Italian saint is the patron of air travellers and astronauts, due to his alleged ability to fly? He is also the patron of exam takers, due to his miraculously getting asked only the questions he knew at his ordination as a priest.',
     correctAnswer: 'St Joseph of Cupertino',
     answers: [
       'St Anthony of Padua',
@@ -60,8 +58,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 5,
-    question:
-      'Which saint is the patron of archers, due to his martyrdom including being tied to a tree or post and shot with arrows?',
+    text: 'Which saint is the patron of archers, due to his martyrdom including being tied to a tree or post and shot with arrows?',
     correctAnswer: 'St Sebastian',
     answers: [
       'St Catherine of Alexandria',
@@ -73,30 +70,28 @@ const questions: Question[] = [
   {
     category: 8,
     id: 6,
-    question:
-      'What saint, who was archdeacon and ran hostels in the Alps, is the patron of mountaineers, the Alps, and presumably also the dogs named after him?',
+    text: 'What saint, who was archdeacon and ran hostels in the Alps, is the patron of mountaineers, the Alps, and presumably also the dogs named after him?',
     correctAnswer: 'St Bernard (of Menthon)',
     answers: ['St Lawrence', 'St Cosmas', 'St Bernard (of Menthon)', 'St Christopher'],
   },
   {
     category: 8,
     id: 7,
-    question:
-      'Which saint is patron of toymakers and children? He is also a patron of sailors and travellers, due to his miraculously causing a storm to stop.',
+    text: 'Which saint is patron of toymakers and children? He is also a patron of sailors and travellers, due to his miraculously causing a storm to stop.',
     correctAnswer: 'St Nicholas (of Myra)',
     answers: ['St Joseph of Arimathea', 'St Matthew', 'St Nicholas (of Myra)', 'St Barbara'],
   },
   {
     category: 8,
     id: 8,
-    question: `Which Roman saint, who was martyred on a gridiron, is reported to have said "I'm well done on this side. Turn me over!" for which he is considered the patron of cooks and comedians?`,
+    text: `Which Roman saint, who was martyred on a gridiron, is reported to have said "I'm well done on this side. Turn me over!" for which he is considered the patron of cooks and comedians?`,
     correctAnswer: 'St Lawrence',
     answers: ['St Luke the Evangelist', 'St Pantaleon', 'St Lawrence', 'St Sebastian'],
   },
   {
     category: 8,
     id: 9,
-    question: `Which saint is the patron of wheelwrights, because she was sentenced to be executed on a breaking wheel but it shattered at her touch? A type of firework is named after her.`,
+    text: `Which saint is the patron of wheelwrights, because she was sentenced to be executed on a breaking wheel but it shattered at her touch? A type of firework is named after her.`,
     correctAnswer: 'St Catherine of Alexandria',
     answers: [
       'St Adrian of Nicomedia',
@@ -108,7 +103,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 10,
-    question: `What saint is the patron of Italy, animals and animal rights activists, and the holy orders he founded?`,
+    text: `What saint is the patron of Italy, animals and animal rights activists, and the holy orders he founded?`,
     correctAnswer: 'St Francis of Assisi',
     answers: [
       'St Anthony of Padua',
@@ -120,7 +115,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 11,
-    question: `Which of the Apostles and author of one of the Gospels is patron of bankers, bookkeepers, and tax collectors, due to his having been a tax collector?`,
+    text: `Which of the Apostles and author of one of the Gospels is patron of bankers, bookkeepers, and tax collectors, due to his having been a tax collector?`,
     correctAnswer: 'St Matthew',
     answers: [
       'St Luke the Evangelist',
@@ -132,7 +127,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 12,
-    question: `Who is the patron saint of Seattle? A cathedral with his name is in First Hill He is also the patron of Spain, and according to legend his remains are buried in Santiago de Compostela.`,
+    text: `Who is the patron saint of Seattle? A cathedral with his name is in First Hill He is also the patron of Spain, and according to legend his remains are buried in Santiago de Compostela.`,
     correctAnswer: 'St James (the Greater)',
     answers: [
       'St Jean-Baptiste de La Salle',
@@ -144,7 +139,7 @@ const questions: Question[] = [
   {
     category: 8,
     id: 14,
-    question: `What French saint, who dedicated his life to educating the poor, is the patron of educators? He founded an order dedicated to education, and has many schools named after him, including a university in Philadelphia, PA.`,
+    text: `What French saint, who dedicated his life to educating the poor, is the patron of educators? He founded an order dedicated to education, and has many schools named after him, including a university in Philadelphia, PA.`,
     correctAnswer: 'St Jean-Baptiste de La Salle',
     answers: [
       'St Ignatius of Loyola',
@@ -156,105 +151,105 @@ const questions: Question[] = [
   {
     category: 8,
     id: 15,
-    question: `Which Basque saint, who cofounded and was the first head of the Jesuits, is venerated as the patron saint of soldiers?`,
+    text: `Which Basque saint, who cofounded and was the first head of the Jesuits, is venerated as the patron saint of soldiers?`,
     correctAnswer: 'St Ignatius of Loyola',
     answers: ['St Christopher', 'St Patrick', 'St Ignatius of Loyola', 'St George'],
   },
   {
     category: 8,
     id: 16,
-    question: `Which of the Apostles, the first Bishop of Rome, is the patron saint of Popes, among a lot of other things?`,
+    text: `Which of the Apostles, the first Bishop of Rome, is the patron saint of Popes, among a lot of other things?`,
     correctAnswer: 'St Peter',
     answers: ['St Peter', 'St Paul', 'St John the Apostle', 'St James'],
   },
   {
     category: 8,
     id: 17,
-    question: `Which saint is the patron of lost causes, lost items, and lost people?`,
+    text: `Which saint is the patron of lost causes, lost items, and lost people?`,
     correctAnswer: 'St Anthony of Padua',
     answers: ['St Francis of Assisi', 'St Peter', 'St Anthony of Padua', 'St Thomas Aquinas'],
   },
   {
     category: 8,
     id: 18,
-    question: `Who is the patron saint of hopeless causes, but not a 1968 single by the Beatles?`,
+    text: `Who is the patron saint of hopeless causes, but not a 1968 single by the Beatles?`,
     correctAnswer: 'St Jude the Apostle',
     answers: ['St Paul', 'St John the Apostle', 'St Jude the Apostle', 'St Peter'],
   },
   {
     category: 8,
     id: 19,
-    question: `Which English saint, and author of Utopia, is the patron of statesmen and politicians?`,
+    text: `Which English saint, and author of Utopia, is the patron of statesmen and politicians?`,
     correctAnswer: 'St Thomas More',
     answers: ['St Augustine of Hippo', 'St Thomas More', 'St Thomas Aquinas', 'St Paul'],
   },
   {
     category: 8,
     id: 20,
-    question: `What man who took Jesus’s body to be buried is venerated as the patron of funeral directors and undertakers?`,
+    text: `What man who took Jesus’s body to be buried is venerated as the patron of funeral directors and undertakers?`,
     correctAnswer: 'St Joseph of Arimathea',
     answers: ['St Catherine of Alexandria', 'St Matthew', 'St Joseph of Arimathea', 'St Peter'],
   },
   {
     category: 8,
     id: 21,
-    question: `Which early Christian philosopher and theologian is the patron saint of philosophers and theologians, as well as the city in Florida named after him?`,
+    text: `Which early Christian philosopher and theologian is the patron saint of philosophers and theologians, as well as the city in Florida named after him?`,
     correctAnswer: 'St Augustine of Hippo',
     answers: ['St Thomas Aquinas', 'St Peter', 'St Paul', 'St Augustine of Hippo'],
   },
   {
     category: 9,
     id: 22,
-    question: `An infection of Candida yeast, particularly in the mouth, is referred to by what bird name?`,
+    text: `An infection of Candida yeast, particularly in the mouth, is referred to by what bird name?`,
     correctAnswer: 'Thrush',
     answers: ['Robin', 'Thrush', 'Sparrow', 'Finch'],
   },
   {
     category: 9,
     id: 23,
-    question: `What disease, AKA lockjaw, is not actually spread by rusty nails, but by soil bacteria? It is estimated to have killed 50,000 people in 2021.`,
+    text: `What disease, AKA lockjaw, is not actually spread by rusty nails, but by soil bacteria? It is estimated to have killed 50,000 people in 2021.`,
     correctAnswer: 'Tetanus',
     answers: ['Anthrax', 'Diphtheria', 'Tetanus', 'Botulism'],
   },
   {
     category: 9,
     id: 24,
-    question: `What mosquito-borne disease, also known historically as “The American Plague”, gets its name from the jaundice that precedes its most severe symptoms? It is currently estimated to kill 30,000 people per year.`,
+    text: `What mosquito-borne disease, also known historically as “The American Plague”, gets its name from the jaundice that precedes its most severe symptoms? It is currently estimated to kill 30,000 people per year.`,
     correctAnswer: 'Yellow fever',
     answers: ['West Nile virus', 'Green fever', 'Yellow fever', 'Dengue fever'],
   },
   {
     category: 9,
     id: 25,
-    question: `Which virus, AKA “winter vomiting disease”, is the most common form of gastroenteritis, with 685 million cases globally and around 200,000 deaths according to the CDC?`,
+    text: `Which virus, AKA “winter vomiting disease”, is the most common form of gastroenteritis, with 685 million cases globally and around 200,000 deaths according to the CDC?`,
     correctAnswer: 'Norovirus.',
     answers: ['Rotavirus', 'Norovirus.', 'Adenovirus', 'Astrovirus'],
   },
   {
     category: 9,
     id: 26,
-    question: `Pertussis is also known by what name, due to the severity of the coughing fits it causes? It kills around 58,700 people per year.`,
+    text: `Pertussis is also known by what name, due to the severity of the coughing fits it causes? It kills around 58,700 people per year.`,
     correctAnswer: 'Whooping cough',
     answers: ['Hacking cough', 'Croup', 'Bronchitis', 'Whooping cough'],
   },
   {
     category: 9,
     id: 27,
-    question: `What disease, historically known as “the white death” or “consumption”, killed 1.2 million people in 2024?`,
+    text: `What disease, historically known as “the white death” or “consumption”, killed 1.2 million people in 2024?`,
     correctAnswer: 'Tuberculosis',
     answers: ['Cholera', 'Tuberculosis', 'Influenza', 'Measles'],
   },
   {
     category: 9,
     id: 28,
-    question: `Schistosomiasis is also known by what name, due to the other host for the parasitic flatworms that cause it? It kills on the order of 100,000 people per year.`,
+    text: `Schistosomiasis is also known by what name, due to the other host for the parasitic flatworms that cause it? It kills on the order of 100,000 people per year.`,
     correctAnswer: 'Snail fever',
     answers: ['Hippo fever', 'Stork fever', 'Elephantiasis', 'Snail fever'],
   },
   {
     category: 9,
     id: 29,
-    question: `Which mosquito-borne disease gets its name from the Italian for “bad air”?`,
+    text: `Which mosquito-borne disease gets its name from the Italian for “bad air”?`,
     correctAnswer: 'Malaria.',
     answers: ['Dengue fever', 'Malaria.', 'Yellow fever', 'Zika virus'],
     additionalInfo:
@@ -263,7 +258,7 @@ const questions: Question[] = [
   {
     category: 9,
     id: 30,
-    question: `Hansen’s disease is another name for what Biblical disease?`,
+    text: `Hansen’s disease is another name for what Biblical disease?`,
     correctAnswer: 'Leprosy',
     answers: ['Plague', 'Smallpox', 'Leprosy', 'Cholera'],
   },

@@ -45,7 +45,7 @@ function reset() {
 
 <template>
   <section v-if="!answered" class="question-card">
-    <div class="question">{{ props.question.question }}</div>
+    <div class="question">{{ props.question.text }}</div>
     <div class="answer">
       <button v-for="(answer, index) in props.question.answers" :key="answer" @click.once="submitanswer(answer)"
         :disabled="disabledIndices.includes(index)">
@@ -55,7 +55,7 @@ function reset() {
     <button @click="useLifeline" :disabled="hintUsed">Hint</button>
   </section>
   <section v-else class="answer-card">
-    <div class="question">{{ props.question.question }}</div>
+    <div class="question">{{ props.question.text }}</div>
     <div>
       <p v-if="selectedAnswer === props.question.correctAnswer">Correct!</p>
       <p v-else>You guessed {{ selectedAnswer }}, but the correct answer is {{ props.question.correctAnswer }}</p>
