@@ -11,11 +11,11 @@
 
 This is a trivia/education app, for various subjects apart from language. Most likely it’ll be a simple flashcard thing; "Uluru is on which continent? Asia/North America/Africa/Oceania", "Which MLB player is AKA the Sultan of Swat?" We might include a hint system of some kind, especially if we make it multiple choice. Or we can do T/F questions, like "Randy Johnson played for the Seattle Mariners T/F?"
 
-Users can select a category, or possibly multiple, and get quizzed on it. IDK if it’ll be a 10-question procedurally-generated quiz, or an endless trek. TBD. It might be nice to have deep URLs for some questions, or just the ability to copy the text to share.
+Users can select a category, or possibly multiple, and get quizzed on it. It’ll be ~~either a 10-question procedurally-generated quiz, or~~ an endless trek. ~~TBD.~~ ~~It might be nice to have deep URLs for some questions, or just the ability to copy the text to share.~~ IDK about the mobile app, but the web thing will absolutely have deep URLs.
 
 Might also be nice to include some expanded information with the answer; "Uluru is a red sandstone monolith in Australia, sacred to the Aboriginal tribes in the area. For more, see <https://en.wikipedia.org/wiki/Uluru">, "George Herman 'Babe' Ruth played MLB from 1914 to 1935, and is arguably the greatest baseball player ever. For more, see <https://en.wikipedia.org/wiki/Babe_Ruth">.
 
-Admins will be able to upload new questions and handle reports from users. This may need a separate panel, though, or just emails and manual DB fiddling initially.
+Admins will be able to upload new questions and handle reports from users. Eventually this will be a separate panel, but initially it'll just be emails and manual DB fiddling.
 
 ## Scope
 
@@ -42,7 +42,7 @@ It may expand to include
 - Dynamic difficulty; raise the difficulty for some quizzers if they get enough right, lower it if they get too many wrong.
 - Human-curated quizzes, to be shared? "I got 80% on this quiz about landmarks, how about you?"
 - A league table for performance on quizzes-
-  - Might cover number of questions or rightness, but probably best to work off a point system to reward both.
+  - Might cover number of questions or rightness, but probably best to work off a point system to reward both. 4pts for right answers, 1 for wrong answers, so people who keep trying can match the folks who know stuff.
   - League table based on categories, "who did best on geography", and your points vs your friends on whatever category they like.
 - Local storage to work offline, and syncing local storage to the server
 - Pictures, including user avatars or illustrations in questions
@@ -83,13 +83,15 @@ Category DB: Document DB, just maps category IDs to user-readable descriptions.
 - Category description: Longer description, "The study of where things are".
 - Question list: May include an index of questions that fit a given category; it’ll likely only change when new questions are uploaded, so this should be cheap.
 
-File storage: Just a bucket, I expect.
+Question-Category: Just a junction table in the DB, if we really need it.
+
+File storage: Just a bucket, I expect. It's also something for the future.
 
 Question API: The bulk of the system, since everything else should just be get/set stuff.
 
 - GET /nextQuestion Returns question for user to answer. May take category as parameter, or may just use user state to get an appropriate question. May include correct/incorrect answers to check answers client-side, or just a set of 4 possible answers to handle that server-side.
 - POST /answerQuestion Sends answer to the server, to get back right/wrong response and also record user’s answer for report card
-- GET /reportCard Returns report card, in whatever format. Questions correct out of total answered, things you learned, etc. Again, may take category and timeframe as parameters.
+- GET /reportCard Returns report card, in whatever format. Questions correct out of total answered, things you learned, etc. Again, may take category and timeframe as parameters. Might be just an HTML endpoint, or email.
 
 ## User Interfaces
 
@@ -103,7 +105,7 @@ User must be able to
   - (Optional) Select difficulty level(s)
 - See user report card, possibly for time frame (number of questions right past month/week/day/all time)
   - Maybe frame that as "Things you learned"; "you thought the Sultan of Swat was Alex Rodriguez, but you learned he was Babe Ruth".
-- See and answer question, including getting hint
+- See and answer question, including getting hint.
 - Report issues with questions or the app; offensive question, incorrect answer, media not loading
 
 Mobile-_early_ design; nail the behavior down on a browser, then wrangle it down to phone-size.
