@@ -10,22 +10,14 @@ on:
     branches: ['master']
 
 jobs:
-  build:
+  build_vue:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    name: Build Vue
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v2
+      - id: Build-Vue
+        uses: xRealNeon/VuePagesAction@1.0.1
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
-      - run: npm run test:unit
-      # - run: npm run test:e2e
+          username: 'darthbob88'
+          reponame: 'trivia-app'
+          token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
