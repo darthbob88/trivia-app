@@ -1,0 +1,1 @@
+var e=[{id:8,name:`Saints`},{id:3,name:`History`},{id:4,name:`Geography`},{id:5,name:`Science`},{id:7,name:`Entertainment`},{id:9,name:`Medicine`}],t=()=>e,n=()=>JSON.parse(localStorage.getItem(`selectedCategories`)||`[]`),r=e=>{localStorage.setItem(`selectedCategories`,JSON.stringify(e))};export{n,r,t};
