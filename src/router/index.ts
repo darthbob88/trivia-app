@@ -13,17 +13,11 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/settings',
       name: 'settings',
-      // route level code-splitting
-      // this generates a separate chunk (Settings.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../components/SettingPage.vue'),
     },
     {
@@ -35,6 +29,11 @@ const router = createRouter({
       path: '/random',
       name: 'randomQuestion',
       redirect: () => `/question/${getRandomQuestionId([])}`,
+    },
+    {
+      path: '/report',
+      name: 'ReportCard',
+      component: () => import('../views/ReportCardView.vue'),
     },
   ],
 })

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { type Question } from '@/stores/questions.ts';
+import { addReportCard, type Question } from '@/stores/questions.ts';
 
 const props = defineProps<{
   question: Question;
@@ -11,6 +11,11 @@ const selectedAnswer = ref('');
 function submitanswer(guess: string) {
   answered.value = true;
   selectedAnswer.value = guess;
+  addReportCard({
+    questionId: props.question.id,
+    isCorrect: guess === props.question.correctAnswer,
+    comment: props.question.comment
+  });
 }
 
 // TODO: Turn this into a proper AJAX call.

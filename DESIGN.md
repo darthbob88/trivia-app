@@ -64,19 +64,20 @@ User DB: Document DB, tracks user accounts
 - Chosen categories: Either simple list of category IDs, or map tracking difficulty per category.
 - Account tier, hopefully not including payment information.
 - Other settings: in-app username, enabled push notifications, avatar once I add it, theme, etc.
-- Questions answered by the user: Long list of { question ID, timestamp, correct?, answer } Used for building the report card
+- Questions answered by the user: Long list of { question ID, correct, answer } Used for building the report card
 - Friends? : Other user IDs this user knows. Used for league, support, whatever
 
-Question DB: Document DB, stores long DB of questions.
+Question DB: Stores questions.
 
 - Question ID: Either simple autoincrement, or proper UUID.
 - Category/ies: Again, list of category IDs. May just be one ID, but it’ll have to be a list for the sake of the code. It’ll need to be a list because a question can be in multiple categories. Even apart from subcategories, they can cross. "The first FIFA World Cup was hosted and won by what country in 1930" is both "Soccer" and "1930s History"
-- Text: Should be HTML/Markdown from the jump, so we can handle images or whatever. OTOH, plain text is already valid Markdown/HTML
-- Correct answer: Ditto
+- Text: The actual question, "Uluru is on what continent?" Should be HTML/Markdown from the jump, so we can handle images or whatever. OTOH, plain text is already valid Markdown/HTML
+- Comment: A shortened version of the question for the report card, "you learned that (Uluru is on, Brendan the Navigator is patron of, candidiasis is also known as, whatever) (correct answer), not (your answer)". Again, should be MD, but we might stick with plain text rather than images.
+- Correct answer: Again, MD.
 - Wrong answers: Ditto
 - Answer text: Ditto. This is the extra stuff that comes up on answer, like "Uluru is a red sandstone monolith in Australia".
 
-Category DB: Document DB, just maps category IDs to user-readable descriptions.
+Category DB: Just maps category IDs to user-readable descriptions.
 
 - Category ID: Again, either autoincrement or proper UUID
 - Category name: User-friendly ID, "Geography" or "Sports" or "New York Yankees"

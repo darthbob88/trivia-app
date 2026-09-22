@@ -7,6 +7,7 @@ interface Question {
   correctAnswer: string
   answers: string[]
   additionalInfo?: string
+  comment?: string
 }
 
 const questions: Question[] = [
@@ -18,6 +19,7 @@ const questions: Question[] = [
     answers: ['St Catherine of Alexandria', 'St Matthew', 'St Brendan the Navigator', 'St Patrick'],
     additionalInfo:
       'Brendan of Clonfert (c. AD 484-c. 577) is one of the early Irish monastic saints and one of the Twelve Apostles of Ireland.',
+    comment: 'St Brendan the Navigator is the patron of mariners, divers, whales, and the US Navy',
   },
   {
     category: 8,
@@ -30,6 +32,7 @@ const questions: Question[] = [
       'St Joseph of Cupertino',
       'St Sebastian',
     ],
+    comment: 'St Christopher is the patron of more or less all travelers.',
   },
   {
     category: 8,
@@ -42,6 +45,8 @@ const questions: Question[] = [
       'St Sebastian',
       'St James the Greater',
     ],
+    comment:
+      'St George (of Lydda) is the patron saint of Boy Scouts and England, among other things.',
   },
   {
     category: 8,
@@ -294,4 +299,30 @@ const getRandomQuestionId = (categories: number[]): number => {
   return result.id
 }
 
-export { getQuestions, getRandomQuestionId, getQuestionById, type Question }
+type Report = {
+  questionId: number
+  comment?: string
+  isCorrect: boolean
+}
+//todo: Turn this into a proper AJAX call.
+const addReportCard = (newAnswer: Report) => {
+  const oldReportCard = getReportCard()
+  const newReportCard = [...oldReportCard, newAnswer]
+  localStorage.setItem('reportCard', JSON.stringify(newReportCard))
+}
+
+//todo: Turn this into a proper AJAX call.
+const getReportCard = (): Report[] => {
+  const reportCard = localStorage.getItem('reportCard')
+  return reportCard ? JSON.parse(reportCard) : []
+}
+
+export {
+  getQuestions,
+  getRandomQuestionId,
+  getQuestionById,
+  addReportCard,
+  getReportCard,
+  type Question,
+  type Report,
+}

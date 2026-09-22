@@ -8,14 +8,11 @@ const info = ref<Question | undefined>(undefined);
 const loading = ref<boolean>(true);
 const error = ref<string | null>(null);
 
-
-const selectedCategories = ref<number[]>(getUserSelectedCategories());
-
 const getQuestion = async () => {
   try {
-
     // TODO: Turn this into a proper AJAX call, possibly consolidating.
-    const questionId = await getRandomQuestionId(selectedCategories.value);
+    const userCats = getUserSelectedCategories()
+    const questionId = await getRandomQuestionId(userCats);
     const response = await getQuestionById(questionId);
     info.value = response;
   } catch (err: unknown) {
