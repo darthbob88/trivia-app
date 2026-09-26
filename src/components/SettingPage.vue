@@ -37,6 +37,8 @@ function resetSettings() {
           <p class="eyebrow">Account preferences</p>
           <h1 id="settings-title">Settings</h1>
           <p class="subtitle">Customize your trivia experience.</p>
+          <p class="subtitle">Your settings are saved in your browser, because I haven't built an actual backend yet.
+          </p>
         </div>
         <div class="avatar" aria-hidden="true">TBD</div>
       </header>

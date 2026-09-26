@@ -57,7 +57,7 @@ function reset() {
         {{ answer }}
       </button>
     </div>
-    <button @click="useLifeline" :disabled="hintUsed">Hint</button>
+    <button class="hint" @click="useLifeline" :disabled="hintUsed">Hint (Remove two wrong answers)</button>
   </section>
   <section v-else class="answer-card">
     <div class="question">{{ props.question.text }}</div>
@@ -84,6 +84,11 @@ function reset() {
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--color-heading);
+}
+
+button.hint {
+  max-width: 40vw;
+  margin: 0 auto;
 }
 
 /* TODO: Get something responsive. */
