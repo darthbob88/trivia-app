@@ -129,22 +129,6 @@ function resetSettings() {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
 
-:global(*) {
-  box-sizing: border-box;
-}
-
-:global(body) {
-  margin: 0;
-  font-family: 'DM Sans', sans-serif;
-  color: #17213b;
-  background: #f4f7ff;
-}
-
-.settings-page {
-  min-height: 100vh;
-  padding: 48px 20px;
-  background: linear-gradient(135deg, #f8faff, #edf1ff);
-}
 
 .settings-card {
   max-width: 760px;

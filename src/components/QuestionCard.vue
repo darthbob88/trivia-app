@@ -66,7 +66,7 @@ function reset() {
       <p v-else>You guessed {{ selectedAnswer }}, but the correct answer is {{ props.question.correctAnswer }}</p>
       <p v-if="props.question.additionalInfo">{{ props.question.additionalInfo }}</p>
       <button v-if="selectedAnswer !== props.question.correctAnswer" @click="reset">Try again</button>
-      <a href="/random">Next Question</a>
+      <a href="random">Next Question</a>
 
     </div>
   </section>
