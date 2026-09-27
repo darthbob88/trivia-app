@@ -13,7 +13,7 @@ This is a trivia/education app, for various subjects apart from language. Most l
 
 Users can select a category, or possibly multiple, and get quizzed on it. It’ll be ~~either a 10-question procedurally-generated quiz, or~~ an endless trek. ~~TBD.~~ ~~It might be nice to have deep URLs for some questions, or just the ability to copy the text to share.~~ IDK about the mobile app, but the web thing will absolutely have deep URLs.
 
-Might also be nice to include some expanded information with the answer; "Uluru is a red sandstone monolith in Australia, sacred to the Aboriginal tribes in the area. For more, see <https://en.wikipedia.org/wiki/Uluru">, "George Herman 'Babe' Ruth played MLB from 1914 to 1935, and is arguably the greatest baseball player ever. For more, see <https://en.wikipedia.org/wiki/Babe_Ruth">.
+Might also be nice to include some expanded information with the answer; "Uluru is a red sandstone monolith in Australia, sacred to the Aboriginal tribes in the area. For more, see <https://en.wikipedia.org/wiki/Uluru>. ", "George Herman 'Babe' Ruth played MLB from 1914 to 1935, and is arguably the greatest baseball player ever. For more, see <https://en.wikipedia.org/wiki/Babe_Ruth>. ".
 
 Admins will be able to upload new questions and handle reports from users. Eventually this will be a separate panel, but initially it'll just be emails and manual DB fiddling.
 
@@ -41,7 +41,7 @@ It may expand to include
   - Names TBD; might call them school levels, like Elementary/High/College, or just numbered 1/2/3/etc. Might get opinionated, and say that some people can do the easy "Jeopardy" questions.
 - Dynamic difficulty; raise the difficulty for some quizzers if they get enough right, lower it if they get too many wrong.
 - Human-curated quizzes, to be shared? "I got 80% on this quiz about landmarks, how about you?"
-- A league table for performance on quizzes-
+- A league table for performance on quizzes/categories-
   - Might cover number of questions or rightness, but probably best to work off a point system to reward both. 4pts for right answers, 1 for wrong answers, so people who keep trying can match the folks who know stuff.
   - League table based on categories, "who did best on geography", and your points vs your friends on whatever category they like.
 - Local storage to work offline, and syncing local storage to the server
@@ -60,9 +60,9 @@ Backend is probably just some managed DB like Firebase/Supabase with a few funct
 User DB: Document DB, tracks user accounts
 
 - User ID: email. IDK how best to handle OAuth stuff, will have to learn that while I build it.
-- Password, or other authentication. Including 2FA apart from SMS! May not get used by anyone but me, but I will include it!
+- Password, or other authentication. Including 2FA apart from SMS! May not get used by anyone but me, but I will support it!
 - Chosen categories: Either simple list of category IDs, or map tracking difficulty per category.
-- Account tier, hopefully not including payment information.
+- Account tier, hopefully not including payment information. We keep some information from Stripe or whatever saying they're paid up, and leave handling credit cards to other people.
 - Other settings: in-app username, enabled push notifications, avatar once I add it, theme, etc.
 - Questions answered by the user: Long list of { question ID, correct, answer } Used for building the report card
 - Friends? : Other user IDs this user knows. Used for league, support, whatever
@@ -70,11 +70,11 @@ User DB: Document DB, tracks user accounts
 Question DB: Stores questions.
 
 - Question ID: Either simple autoincrement, or proper UUID.
-- Category/ies: Again, list of category IDs. May just be one ID, but it’ll have to be a list for the sake of the code. It’ll need to be a list because a question can be in multiple categories. Even apart from subcategories, they can cross. "The first FIFA World Cup was hosted and won by what country in 1930" is both "Soccer" and "1930s History"
+- Category/ies: Again, list of category IDs, even if it's just one category `[1]`. It’ll need to be a list because a question can be in multiple crossing categories. "The first FIFA World Cup was hosted and won by what country in 1930" is both "Soccer" and "1930s History"
 - Text: The actual question, "Uluru is on what continent?" Should be HTML/Markdown from the jump, so we can handle images or whatever. OTOH, plain text is already valid Markdown/HTML
-- Comment: A shortened version of the question for the report card, "you learned that (Uluru is on, Brendan the Navigator is patron of, candidiasis is also known as, whatever) (correct answer), not (your answer)". Again, should be MD, but we might stick with plain text rather than images.
+- Comment: A shortened version of the question for the report card, "you learned that (Uluru is on Oceania, Brendan the Navigator is patron of sailors, candidiasis is also known as thrush, whatever)". Again, should be MD, but we might stick with plain text rather than images.
 - Correct answer: Again, MD.
-- Wrong answers: Ditto
+- Wrong answers: Ditto, but an array of MD/HTML strings. May just be answers and the correct index, IDK.
 - Answer text: Ditto. This is the extra stuff that comes up on answer, like "Uluru is a red sandstone monolith in Australia".
 
 Category DB: Just maps category IDs to user-readable descriptions.
@@ -85,6 +85,10 @@ Category DB: Just maps category IDs to user-readable descriptions.
 - Question list: May include an index of questions that fit a given category; it’ll likely only change when new questions are uploaded, so this should be cheap.
 
 Question-Category: Just a junction table in the DB, if we really need it.
+
+- Row id
+- Category ID
+- Question ID
 
 File storage: Just a bucket, I expect. It's also something for the future.
 
