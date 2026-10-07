@@ -95,7 +95,9 @@ File storage: Just a bucket, I expect. It's also something for the future.
 Question API: The bulk of the system, since everything else should just be get/set stuff.
 
 - GET /nextQuestion Returns question for user to answer. May take category as parameter, or may just use user state to get an appropriate question. May include correct/incorrect answers to check answers client-side, or just a set of 4 possible answers to handle that server-side.
+  - Should also have batch version, to support offline play.
 - POST /answerQuestion Sends answer to the server, to get back right/wrong response and also record user’s answer for report card
+  - Again, should have batch version for offline play. Will need to work out caching/retrying logic.
 - GET /reportCard Returns report card, in whatever format. Questions correct out of total answered, things you learned, etc. Again, may take category and timeframe as parameters. Might be just an HTML endpoint, or email.
 
 ## User Interfaces
