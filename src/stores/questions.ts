@@ -7,7 +7,7 @@ interface Question {
   correctAnswer: string
   answers: string[]
   additionalInfo?: string
-  comment?: string
+  comment: string
 }
 
 const questions: Question[] = [
@@ -59,6 +59,8 @@ const questions: Question[] = [
       'St Francis of Assisi',
       'St Peter the Apostle',
     ],
+    comment:
+      'St Joseph of Cupertino is the patron of air travellers, and astronauts, and exam takers.',
   },
   {
     category: 8,
@@ -71,6 +73,7 @@ const questions: Question[] = [
       'St Sebastian',
       'St Anthony the Abbot',
     ],
+    comment: 'St Sebastian is the patron of archers',
   },
   {
     category: 8,
@@ -78,6 +81,8 @@ const questions: Question[] = [
     text: 'What saint, who was archdeacon and ran hostels in the Alps, is the patron of mountaineers, the Alps, and presumably also the dogs named after him?',
     correctAnswer: 'St Bernard (of Menthon)',
     answers: ['St Lawrence', 'St Cosmas', 'St Bernard (of Menthon)', 'St Christopher'],
+    comment:
+      'St Bernard (of Menthon) is the patron of mountaineers, the Alps, and the dogs named after him.',
   },
   {
     category: 8,
@@ -85,6 +90,8 @@ const questions: Question[] = [
     text: 'Which saint is patron of toymakers and children? He is also a patron of sailors and travellers, due to his miraculously causing a storm to stop.',
     correctAnswer: 'St Nicholas (of Myra)',
     answers: ['St Joseph of Arimathea', 'St Matthew', 'St Nicholas (of Myra)', 'St Barbara'],
+    comment:
+      'St Nicholas of Myra is the patron of toymakers and children, and also a patron of sailors and travellers.',
   },
   {
     category: 8,
@@ -92,6 +99,7 @@ const questions: Question[] = [
     text: `Which Roman saint, who was martyred on a gridiron, is reported to have said "I'm well done on this side. Turn me over!" for which he is considered the patron of cooks and comedians?`,
     correctAnswer: 'St Lawrence',
     answers: ['St Luke the Evangelist', 'St Pantaleon', 'St Lawrence', 'St Sebastian'],
+    comment: 'St Lawrence is the patron of cooks and comedians.',
   },
   {
     category: 8,
@@ -104,6 +112,7 @@ const questions: Question[] = [
       'St Catherine of Alexandria',
       'St Joan of Arc',
     ],
+    comment: 'St Catherine of Alexandria is the patron of wheelwrights.',
   },
   {
     category: 8,
@@ -116,6 +125,7 @@ const questions: Question[] = [
       'St Gianna Beretta Molla',
       'St Francis of Assisi',
     ],
+    comment: 'St Francis of Assisi is the patron of Italy, animals, and animal rights activists.',
   },
   {
     category: 8,
@@ -128,11 +138,12 @@ const questions: Question[] = [
       'St Mark the Evangelist',
       'St Matthew',
     ],
+    comment: 'St Matthew is the patron of bankers, bookkeepers, and tax collectors.',
   },
   {
     category: 8,
     id: 12,
-    text: `Who is the patron saint of Seattle? A cathedral with his name is in First Hill He is also the patron of Spain, and according to legend his remains are buried in Santiago de Compostela.`,
+    text: `Who is the patron saint of Seattle? A cathedral with his name is in First Hill. He is also the patron of Spain, and according to legend his remains are buried in Santiago de Compostela.`,
     correctAnswer: 'St James (the Greater)',
     answers: [
       'St Jean-Baptiste de La Salle',
@@ -140,6 +151,7 @@ const questions: Question[] = [
       'St Peter',
       'St John the Apostle',
     ],
+    comment: 'St James the Greater is the patron saint of Seattle and Spain.',
   },
   {
     category: 8,
@@ -152,6 +164,7 @@ const questions: Question[] = [
       'St Thomas Aquinas',
       'St Peter',
     ],
+    comment: 'St Jean-Baptiste de La Salle is the patron of educators.',
   },
   {
     category: 8,
@@ -159,6 +172,7 @@ const questions: Question[] = [
     text: `Which Basque saint, who cofounded and was the first head of the Jesuits, is venerated as the patron saint of soldiers?`,
     correctAnswer: 'St Ignatius of Loyola',
     answers: ['St Christopher', 'St Patrick', 'St Ignatius of Loyola', 'St George'],
+    comment: 'St Ignatius of Loyola is the patron saint of soldiers.',
   },
   {
     category: 8,
@@ -166,6 +180,7 @@ const questions: Question[] = [
     text: `Which of the Apostles, the first Bishop of Rome, is the patron saint of Popes, among a lot of other things?`,
     correctAnswer: 'St Peter',
     answers: ['St Peter', 'St Paul', 'St John the Apostle', 'St James'],
+    comment: 'St Peter is the patron saint of Popes.',
   },
   {
     category: 8,
@@ -173,6 +188,7 @@ const questions: Question[] = [
     text: `Which saint is the patron of lost causes, lost items, and lost people?`,
     correctAnswer: 'St Anthony of Padua',
     answers: ['St Francis of Assisi', 'St Peter', 'St Anthony of Padua', 'St Thomas Aquinas'],
+    comment: 'St Anthony of Padua is the patron of lost causes, lost items, and lost people.',
   },
   {
     category: 8,
@@ -180,6 +196,7 @@ const questions: Question[] = [
     text: `Who is the patron saint of hopeless causes, but not a 1968 single by the Beatles?`,
     correctAnswer: 'St Jude the Apostle',
     answers: ['St Paul', 'St John the Apostle', 'St Jude the Apostle', 'St Peter'],
+    comment: 'St Jude the Apostle is the patron saint of hopeless causes.',
   },
   {
     category: 8,
@@ -187,13 +204,15 @@ const questions: Question[] = [
     text: `Which English saint, and author of Utopia, is the patron of statesmen and politicians?`,
     correctAnswer: 'St Thomas More',
     answers: ['St Augustine of Hippo', 'St Thomas More', 'St Thomas Aquinas', 'St Paul'],
+    comment: 'St Thomas More is the patron of statesmen and politicians.',
   },
   {
     category: 8,
     id: 20,
-    text: `What man who took Jesus’s body to be buried is venerated as the patron of funeral directors and undertakers?`,
+    text: `What man who took Jesus's body to be buried is venerated as the patron of funeral directors and undertakers?`,
     correctAnswer: 'St Joseph of Arimathea',
     answers: ['St Catherine of Alexandria', 'St Matthew', 'St Joseph of Arimathea', 'St Peter'],
+    comment: 'St Joseph of Arimathea is the patron of funeral directors and undertakers.',
   },
   {
     category: 8,
@@ -201,6 +220,8 @@ const questions: Question[] = [
     text: `Which early Christian philosopher and theologian is the patron saint of philosophers and theologians, as well as the city in Florida named after him?`,
     correctAnswer: 'St Augustine of Hippo',
     answers: ['St Thomas Aquinas', 'St Peter', 'St Paul', 'St Augustine of Hippo'],
+    comment:
+      'St Augustine of Hippo is the patron saint of philosophers, theologians, and St Augustine, FL.',
   },
   {
     category: 9,
@@ -208,6 +229,7 @@ const questions: Question[] = [
     text: `An infection of Candida yeast, particularly in the mouth, is referred to by what bird name?`,
     correctAnswer: 'Thrush',
     answers: ['Robin', 'Thrush', 'Sparrow', 'Finch'],
+    comment: 'Candida yeast infection is also called "thrush".',
   },
   {
     category: 9,
@@ -215,20 +237,25 @@ const questions: Question[] = [
     text: `What disease, AKA lockjaw, is not actually spread by rusty nails, but by soil bacteria? It is estimated to have killed 50,000 people in 2021.`,
     correctAnswer: 'Tetanus',
     answers: ['Anthrax', 'Diphtheria', 'Tetanus', 'Botulism'],
+    comment: 'Tetanus is a bacterial infection also known as "lockjaw".',
   },
   {
     category: 9,
     id: 24,
-    text: `What mosquito-borne disease, also known historically as “The American Plague”, gets its name from the jaundice that precedes its most severe symptoms? It is currently estimated to kill 30,000 people per year.`,
+    text: `What mosquito-borne disease, also known historically as "The American Plague", gets its name from the jaundice that precedes its most severe symptoms? It is currently estimated to kill 30,000 people per year.`,
     correctAnswer: 'Yellow fever',
     answers: ['West Nile virus', 'Green fever', 'Yellow fever', 'Dengue fever'],
+    comment:
+      'Yellow fever was also known as "the American Plague", and is characterized by jaundice.',
   },
   {
     category: 9,
     id: 25,
-    text: `Which virus, AKA “winter vomiting disease”, is the most common form of gastroenteritis, with 685 million cases globally and around 200,000 deaths according to the CDC?`,
+    text: `Which virus, AKA "winter vomiting disease", is the most common form of gastroenteritis, with 685 million cases globally and around 200,000 deaths according to the CDC?`,
     correctAnswer: 'Norovirus.',
     answers: ['Rotavirus', 'Norovirus.', 'Adenovirus', 'Astrovirus'],
+    comment:
+      'Norovirus is the most common cause of gastroenteritis worldwide, and also known as "winter vomiting disease".',
   },
   {
     category: 9,
@@ -236,13 +263,15 @@ const questions: Question[] = [
     text: `Pertussis is also known by what name, due to the severity of the coughing fits it causes? It kills around 58,700 people per year.`,
     correctAnswer: 'Whooping cough',
     answers: ['Hacking cough', 'Croup', 'Bronchitis', 'Whooping cough'],
+    comment: 'Pertussis is also called "whooping cough".',
   },
   {
     category: 9,
     id: 27,
-    text: `What disease, historically known as “the white death” or “consumption”, killed 1.2 million people in 2024?`,
+    text: `What disease, historically known as "the white death" or "consumption", killed 1.2 million people in 2024?`,
     correctAnswer: 'Tuberculosis',
     answers: ['Cholera', 'Tuberculosis', 'Influenza', 'Measles'],
+    comment: 'Tuberculosis is a bacterial infection, also known historically as "consumption".',
   },
   {
     category: 9,
@@ -250,22 +279,25 @@ const questions: Question[] = [
     text: `Schistosomiasis is also known by what name, due to the other host for the parasitic flatworms that cause it? It kills on the order of 100,000 people per year.`,
     correctAnswer: 'Snail fever',
     answers: ['Hippo fever', 'Stork fever', 'Elephantiasis', 'Snail fever'],
+    comment: 'Schistosomiasis is a parasitic disease also known as "snail fever".',
   },
   {
     category: 9,
     id: 29,
-    text: `Which mosquito-borne disease gets its name from the Italian for “bad air”?`,
+    text: `Which mosquito-borne disease gets its name from the Italian for "bad air"?`,
     correctAnswer: 'Malaria.',
     answers: ['Dengue fever', 'Malaria.', 'Yellow fever', 'Zika virus'],
     additionalInfo:
       'At its peak, malaria infested every continent except Antarctica. It killed an estimated 619,000 people in 2021.',
+    comment: 'Malaria\'s name comes from the Italian for "bad air".',
   },
   {
     category: 9,
     id: 30,
-    text: `Hansen’s disease is another name for what Biblical disease?`,
+    text: `Hansen's disease is another name for what Biblical disease?`,
     correctAnswer: 'Leprosy',
     answers: ['Plague', 'Smallpox', 'Leprosy', 'Cholera'],
+    comment: "Hansen's disease is another name for leprosy.",
   },
 ]
 
