@@ -2,6 +2,17 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+## Supabase Authentication
+
+The app requires users to sign in or create an account with Supabase before accessing trivia pages. Configure the Supabase project URL and publishable key in a local `.env.local` file:
+
+```sh
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=your-supabase-publishable-key
+```
+
+In the Supabase dashboard, enable Email authentication. If email confirmation is enabled, new users must confirm their email before signing in. The app uses Supabase's persisted browser session and provides a sign-out control.
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
