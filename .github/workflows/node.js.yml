@@ -15,6 +15,17 @@ jobs:
     name: Build Vue
     steps:
       - uses: actions/checkout@v2
+      - name: Create .env.local
+        env:
+          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_PUBLISHABLE_KEY" ]; then
+            echo "::error::Set the VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY repository secrets."
+            exit 1
+          fi
+          printf 'VITE_SUPABASE_URL=%s\n' "$SUPABASE_URL" > .env.local
+          printf 'VITE_SUPABASE_PUBLISHABLE_KEY=%s\n' "$SUPABASE_PUBLISHABLE_KEY" >> .env.local
       - id: Build-Vue
         uses: xRealNeon/VuePagesAction@1.0.1
         with:

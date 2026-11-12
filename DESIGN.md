@@ -64,8 +64,13 @@ User DB: Document DB, tracks user accounts
 - Chosen categories: Either simple list of category IDs, or map tracking difficulty per category.
 - Account tier, hopefully not including payment information. We keep some information from Stripe or whatever saying they're paid up, and leave handling credit cards to other people.
 - Other settings: in-app username, enabled push notifications, avatar once I add it, theme, etc.
-- Questions answered by the user: Long list of { question ID, correct, answer } Used for building the report card
-- Friends? : Other user IDs this user knows. Used for league, support, whatever
+
+Questions answered by the user log:
+
+- Long list of { question ID, correct, answer } Used for building the report card
+- Separate table for query convenience.
+
+Friends: Junction table from user to user, tracking users that user knows. Used for league, support, whatever
 
 Question DB: Stores questions.
 
